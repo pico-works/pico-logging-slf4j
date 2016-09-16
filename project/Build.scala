@@ -2,7 +2,7 @@ import sbt.Keys._
 import sbt._
 
 object Build extends sbt.Build {  
-  val pico_logging              = "org.pico"        %%  "pico-logging"              % "0.0.2"
+  val pico_logging              = "org.pico"        %%  "pico-logging"              % "1.0.0"
 
   val slf4j_api                 = "org.slf4j"       %   "slf4j-api"                 % "1.7.6"
 

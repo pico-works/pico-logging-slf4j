@@ -32,7 +32,7 @@ object Slf4j {
   }
 
   disposer += LogBus.subscribe { logEvent =>
-    val logger = getLogger(logEvent.classTag.runtimeClass)
+    val logger = getLogger(logEvent.clazz)
 
     if (logEvent.exception != null) {
       logEvent.level match {
