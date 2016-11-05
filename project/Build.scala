@@ -2,11 +2,11 @@ import sbt.Keys._
 import sbt._
 
 object Build extends sbt.Build {  
-  val pico_logging              = "org.pico"        %%  "pico-logging"              % "3.0.0"
+  val pico_logging              = "org.pico"        %%  "pico-logging"              % "4.0.1"
 
   val slf4j_api                 = "org.slf4j"       %   "slf4j-api"                 % "1.7.6"
 
-  val specs2_core               = "org.specs2"      %%  "specs2-core"               % "3.8.4"
+  val specs2_core               = "org.specs2"      %%  "specs2-core"               % "3.8.6"
 
   implicit class ProjectOps(self: Project) {
     def standard(theDescription: String) = {
@@ -16,7 +16,7 @@ object Build extends sbt.Build {
           .settings(description := theDescription)
           .settings(isSnapshot := true)
           .settings(resolvers += Resolver.sonatypeRepo("releases"))
-          .settings(addCompilerPlugin("org.spire-math" % "kind-projector" % "0.8.0" cross CrossVersion.binary))
+          .settings(addCompilerPlugin("org.spire-math" % "kind-projector" % "0.9.3" cross CrossVersion.binary))
     }
 
     def notPublished = self.settings(publish := {}).settings(publishArtifact := false)
@@ -39,4 +39,3 @@ object Build extends sbt.Build {
       .notPublished
       .aggregate(`pico-logging-slf4j`, `pico-fake`)
 }
-
